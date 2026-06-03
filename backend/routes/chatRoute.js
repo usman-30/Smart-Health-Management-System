@@ -6,4 +6,6 @@ import authAdmin from "../middlewares/authAdmin.js";
 const chatRouter = express.Router();
 
 chatRouter.post("/", chatBot);
+
+
 export default chatRouter;

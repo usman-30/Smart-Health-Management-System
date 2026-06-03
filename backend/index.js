@@ -56,7 +56,7 @@ function removeSocket(socketId) {
   socketToUser.delete(socketId);
 
   const set = users.get(userId);
-  if (!set) return { userId, wentOffline: false };
+  if (!set) return { userId,  wentOffline: false };
 
   set.delete(socketId);
   if (set.size === 0) {
@@ -89,7 +89,7 @@ io.on("connection", (socket) => {
     addUserSocket(patientId, socket.id);
     console.log("Patient registered:", patientId, socket.id);
   });
-     
+
   // Patient calls doctor => create callId and notify doctor sockets
   const RING_TIMEOUT_MS = 30_000; // 30s
   socket.on("callDoctor", ({ doctorId, patientId }) => {
@@ -129,7 +129,7 @@ io.on("connection", (socket) => {
         if (ds) for (const sId of ds) io.to(sId).emit("callEnded", { callId });
 
         calls.delete(callId);
-        console.log(`Call ${callId} timed out (no answer)`);
+        console.log(`Call ${callId} timed out  (no answer)`);
       }
     }, RING_TIMEOUT_MS);
 

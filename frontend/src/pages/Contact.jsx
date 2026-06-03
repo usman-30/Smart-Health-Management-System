@@ -29,6 +29,38 @@ const Contact = () => {
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
+  /*const onSubmitHandler = async (event) => {
+  event.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:8080/chat/send-mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success("Thanks for contacting us. We will respond shortly.");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      toast.error("Failed to send message");
+    }
+  } catch (error) {
+    console.log(error);
+    toast.error("Something went wrong");
+  }
+};*/
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-cyan-50/40 to-white pb-16 pt-8">
       <ChatBot />
